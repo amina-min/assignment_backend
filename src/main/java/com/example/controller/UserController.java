@@ -58,7 +58,6 @@ public class UserController {
 			map.put("error", e.getLocalizedMessage());
 			logger.error("userId already in use");
 			return ResponseEntity.status(500).body(map);
-
 		}
 
 	}
