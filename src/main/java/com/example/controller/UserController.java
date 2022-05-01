@@ -39,7 +39,7 @@ public class UserController {
 
 			if (!dbuser.isEmpty()) {
 				map.put("message", "user already exists");
-				map.put("status", "failed to save");
+				map.put("status", 403);
 				return ResponseEntity.status(403).body(map);
 
 			} else {
@@ -115,7 +115,7 @@ public class UserController {
 			Optional<User> dbuser = userRepository.findById(user.getUserId());
 			if (dbuser.isEmpty()) {
 				map.put("message", "user not found");
-				map.put("status", "failed to add");
+				map.put("status", 403);
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(map);
 			} else {
 				user = userRepository.save(user);
